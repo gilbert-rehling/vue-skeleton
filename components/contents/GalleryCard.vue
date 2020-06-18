@@ -60,8 +60,8 @@
     /*
      *   Imports the mixins used by the component.  :key="content.id" :content="content"
      */
-    import { LatestTextFilter } from '../../mixins/filters/LatestTextFilter.js';
-    import { LatestCityFilter } from '../../mixins/filters/LatestCityFilter.js';
+    import { ContentTextFilter } from '../../mixins/filters/ContentTextFilter.js';
+    import { ContentCityFilter } from '../../mixins/filters/ContentCityFilter.js';
 
     /*
      * Import the Event bus
@@ -87,13 +87,13 @@
          *   Define the mixins used by the component.
          */
         mixins: [
-            LatestTextFilter,
-            LatestCityFilter
+            ContentTextFilter,
+            ContentCityFilter
         ],
 
         /*
-        *   Listen to the mounted lifecycle hook.
-        */
+         *   Listen to the mounted lifecycle hook.
+         */
         mounted() {
             /*
              * When the filters are updated, we process the filters.
@@ -184,14 +184,14 @@
                     /*
                      * Check if text passes
                      */
-                    if (this.textSearch !== '' && this.processLatestTextFilter(this.content, this.textSearch)) {
+                    if (this.textSearch !== '' && this.processContentTextFilter(this.content, this.textSearch)) {
                         textPassed = true;
                     }
 
                     /*
                      *   Checks to see if the city passed or not.
                      */
-                    if (this.cityFilter !== '' && this.processLatestCityFilter(this.content, this.cityFilter)) {
+                    if (this.cityFilter !== '' && this.processContentCityFilter(this.content, this.cityFilter)) {
                         cityPassed = true;
                     }
 
